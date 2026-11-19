@@ -48,7 +48,7 @@
     }
   });
 
-  fetch('/game/index.html', { method: 'HEAD', cache: 'no-store' })
+  fetch('/public/game/index.html', { method: 'HEAD', cache: 'no-store' })
     .then((response) => {
       if (!response.ok) throw new Error('Unity build not found');
       document.body.classList.add('game-ready');
@@ -58,14 +58,14 @@
         status.textContent = 'READY · MOBILE FULL-PAGE MODE';
         stage.innerHTML = `<div class="portal-state"><div class="portal-icon">♜</div><h2>YOUR REALM AWAITS</h2><p>For the best mobile experience, the game opens as its own page with landscape touch controls.</p><button class="launch-game" id="launch-game" type="button">ENTER CHAPTER ${String(config.number).padStart(2,'0')} ⟶</button></div>`;
         document.getElementById('launch-game').addEventListener('click', () => {
-          window.location.assign(`/game/index.html?chapter=${config.number}&standalone=1`);
+          window.location.assign(`/public/game/index.html?chapter=${config.number}&standalone=1`);
         });
       } else {
         status.textContent = 'GAME BUILD FOUND · READY TO LAUNCH';
         stage.innerHTML = '';
         gameFrame = document.createElement('iframe');
         gameFrame.title = `Lost Kingdoms ${config.title} gameplay`;
-        gameFrame.src = `/game/index.html?chapter=${config.number}`;
+        gameFrame.src = `/public/game/index.html?chapter=${config.number}`;
         gameFrame.allow = 'fullscreen; autoplay; gamepad; accelerometer; gyroscope';
         gameFrame.allowFullscreen = true;
         stage.appendChild(gameFrame);
