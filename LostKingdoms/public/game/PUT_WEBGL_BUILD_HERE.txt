@@ -1,4 +1,1 @@
-Copy the CONTENTS of the compiled Unity WebGL build folder here.
-Expected: public/game/index.html, public/game/Build/, and public/game/TemplateData/.
-The Unity project must read the ?chapter=1 or ?chapter=2 query parameter to select a chapter.
-Mobile touch controls must be implemented in Unity and tested on real devices.
+
